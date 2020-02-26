@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200224064659_addingmodels.cs" />
+    <Compile Remove="Migrations\20200224064659_addingmodels.Designer.cs" />
+    <Compile Remove="Migrations\20200225035749_changingmodel.cs" />
+    <Compile Remove="Migrations\20200225035749_changingmodel.Designer.cs" />
+    <Compile Remove="Migrations\20200225083340_deletectoroptionandquestion.cs" />
+    <Compile Remove="Migrations\20200225083340_deletectoroptionandquestion.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.0" />
+  </ItemGroup>
+
+</Project>
