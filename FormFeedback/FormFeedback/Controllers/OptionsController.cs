@@ -66,7 +66,7 @@ namespace FormFeedback.Controllers
         // POST: Options/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(string id, Option option)
         {
             try
             {

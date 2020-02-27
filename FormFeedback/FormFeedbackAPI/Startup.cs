@@ -43,18 +43,19 @@ namespace FormFeedbackAPI
                 options.IdleTimeout = TimeSpan.FromMinutes(20);
             });
 
-            string securityKey = "ini_tuh_form_feedback_jota_dan_rifky";
-            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
+            //string securityKey = "ini_tuh_form_feedback_jota_dan_rifky";
+            //var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
-                options.TokenValidationParameters = new TokenValidationParameters
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters()
                 {
                     ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = "formfeedback",
-                    ValidAudience = "readers",
-                    IssuerSigningKey = symmetricSecurityKey
+                    ValidateAudience = false,
+                    ValidIssuer = Configuration["Jwt:Issuer"],
+                    ValidAudience = Configuration["Jwt:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
             });
 
@@ -84,6 +85,9 @@ namespace FormFeedbackAPI
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            app.UseSession();
+            app.UseAuthentication();
         }
     }
 }

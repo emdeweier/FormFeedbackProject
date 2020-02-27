@@ -12677,11 +12677,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "B:\\Bootcamp #33\\Project Akhir\\FormFeedback\\FormFeedback\\FormFeedback.csproj",
+      "projectUniqueName": "B:\\Bootcamp #33\\git\\FormFeedbackProject\\FormFeedback\\FormFeedback\\FormFeedback.csproj",
       "projectName": "FormFeedback",
-      "projectPath": "B:\\Bootcamp #33\\Project Akhir\\FormFeedback\\FormFeedback\\FormFeedback.csproj",
+      "projectPath": "B:\\Bootcamp #33\\git\\FormFeedbackProject\\FormFeedback\\FormFeedback\\FormFeedback.csproj",
       "packagesPath": "C:\\Users\\marzo\\.nuget\\packages\\",
-      "outputPath": "B:\\Bootcamp #33\\Project Akhir\\FormFeedback\\FormFeedback\\obj\\",
+      "outputPath": "B:\\Bootcamp #33\\git\\FormFeedbackProject\\FormFeedback\\FormFeedback\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12700,8 +12700,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "B:\\Bootcamp #33\\Project Akhir\\FormFeedback\\FormFeedbackAPI\\FormFeedbackAPI.csproj": {
-              "projectPath": "B:\\Bootcamp #33\\Project Akhir\\FormFeedback\\FormFeedbackAPI\\FormFeedbackAPI.csproj"
+            "B:\\Bootcamp #33\\git\\FormFeedbackProject\\FormFeedback\\FormFeedbackAPI\\FormFeedbackAPI.csproj": {
+              "projectPath": "B:\\Bootcamp #33\\git\\FormFeedbackProject\\FormFeedback\\FormFeedbackAPI\\FormFeedbackAPI.csproj"
             }
           }
         }

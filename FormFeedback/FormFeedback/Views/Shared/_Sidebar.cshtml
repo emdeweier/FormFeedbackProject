@@ -1,18 +1,19 @@
-﻿<div class="sidebar">
+﻿@using Microsoft.AspNetCore.Http
+<div class="sidebar">
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
             <img src="~/images/adminlte/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            <a href="#" class="d-block">@Context.Session.GetString("Username")</a>
         </div>
     </div>
     <!-- Sidebar Menu -->
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+            with font-awesome or any other icon font library -->
             <li class="nav-item">
                 <a href="/Feedbacks/" class="nav-link">
                     <i class="nav-icon fas fa-home"></i>
@@ -22,7 +23,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/" class="nav-link">
+                <a href="/Logout" class="nav-link">
                     <i class="nav-icon fas fa-sign-in-alt"></i>
                     <p>
                         Logout

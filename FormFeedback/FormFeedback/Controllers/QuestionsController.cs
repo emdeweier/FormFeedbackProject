@@ -25,9 +25,15 @@ namespace FormFeedback.Controllers
         // GET: Questions
         public ActionResult Index()
         {
-            ViewBag.Questions = Questions();
-            ViewBag.Options = Options();
-            return View();
+            var token = HttpContext.Session.GetString("Token");
+            if (token != null)
+            {
+                httpClient.DefaultRequestHeaders.Add("Authorization", token);
+                ViewBag.Questions = Questions();
+                ViewBag.Options = Options();
+                return View();
+            }
+            return RedirectToAction("", "Home");
         }
 
         // GET: Questions/Details/5
@@ -67,6 +73,7 @@ namespace FormFeedback.Controllers
         // GET: Questions/Create
         public async Task<ActionResult> Create(QuestionVM questionVM)
         {
+            httpClient.DefaultRequestHeaders.Add("Authorization", HttpContext.Session.GetString("Token"));
             var myContent = JsonConvert.SerializeObject(questionVM);
             var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
             var byteContent = new ByteArrayContent(buffer);
@@ -77,6 +84,7 @@ namespace FormFeedback.Controllers
 
         public JsonResult Get(string id)
         {
+            httpClient.DefaultRequestHeaders.Add("Authorization", HttpContext.Session.GetString("Token"));
             var cek = httpClient.GetAsync("Questions/" + id).Result;
             var read = cek.Content.ReadAsAsync<QuestionVM>().Result;
             return Json(new { data = read });

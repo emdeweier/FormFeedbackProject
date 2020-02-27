@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using FormFeedbackAPI.Models;
 using FormFeedbackAPI.Services.Interfaces;
 using FormFeedbackAPI.ViewModels;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,12 +24,14 @@ namespace FormFeedbackAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IEnumerable<QuestionVM> GetQuestions()
         {
             return _questionService.Get();
         }
 
         [HttpGet("{Id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public ActionResult GetQuestions(string id)
         {
             var questions = _questionService.Get(id);
@@ -35,6 +39,7 @@ namespace FormFeedbackAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public ActionResult PostQuestions(QuestionVM questionVM)
         {
             var post = _questionService.Add(questionVM);
