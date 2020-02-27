@@ -12,3 +12,17 @@ B:\Bootcamp #33\Project Akhir\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2
 B:\Bootcamp #33\Project Akhir\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.dll
 B:\Bootcamp #33\Project Akhir\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.pdb
 B:\Bootcamp #33\Project Akhir\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.csprojAssemblyReference.cache
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\bin\Debug\netcoreapp2.1\FormFeedbackAPI.deps.json
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\bin\Debug\netcoreapp2.1\FormFeedbackAPI.runtimeconfig.json
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\bin\Debug\netcoreapp2.1\FormFeedbackAPI.runtimeconfig.dev.json
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\bin\Debug\netcoreapp2.1\FormFeedbackAPI.dll
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\bin\Debug\netcoreapp2.1\FormFeedbackAPI.pdb
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.csprojAssemblyReference.cache
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.csproj.CoreCompileInputs.cache
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.RazorAssemblyInfo.cache
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.RazorAssemblyInfo.cs
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.AssemblyInfoInputs.cache
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.AssemblyInfo.cs
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.RazorTargetAssemblyInfo.cache
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.dll
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.pdb

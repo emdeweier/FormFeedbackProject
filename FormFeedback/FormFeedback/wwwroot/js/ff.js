@@ -1,4 +1,14 @@
-﻿// Questions
+﻿// Logout
+function uLogout() {
+    debugger;
+    $.ajax({
+        "url": "/Home/Logout"
+    }).then((result) => {
+        window.location.href = '/'
+    })
+}
+
+// Questions
 
 $(function () {
     debugger;

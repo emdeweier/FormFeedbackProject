@@ -27,7 +27,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <img src="~/images/adminlte/icon.png" width="100px"/>
+            <img src="~/images/adminlte/icon.png" width="100" />
             <br />
             <a href="/"><b>Form</b>Feedback</a>
         </div>
@@ -36,15 +36,15 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg"></p>
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="text" class="form-control" placeholder="Username" id="username">
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
+                            <span class="fas fa-user"></span>
                         </div>
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -77,6 +77,39 @@
     <script src="~/js/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/js/adminlte.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+        function uLogin() {
+            debugger;
+            var login = new Object();
+            login.UserName = $("#username").val();
+            login.PasswordHash = $("#password").val();
+            $.ajax({
+                "url": "/Home/Login",
+                "type": "POST",
+                "dataType": "json",
+                "data": { UserName: login.UserName, PasswordHash: login.PasswordHash }
+            }).then((result) => {
+                debugger;
+                if (result.statusCode == 200) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Ciee Bisa Login',
+                        text: 'Success!'
+                    }).then((hasil) => {
+                        window.location.href = '/Questions/'
+                    });
+                }
+                else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Ciee Gak Bisa Login',
+                        text: 'Failed!'
+                    });
+                }
+            })
+        }
+    </script>
 </body>
 </html>
 

@@ -12657,11 +12657,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "B:\\Bootcamp #33\\Project Akhir\\FormFeedback\\FormFeedbackAPI\\FormFeedbackAPI.csproj",
+      "projectUniqueName": "B:\\Bootcamp #33\\git\\FormFeedbackProject\\FormFeedback\\FormFeedbackAPI\\FormFeedbackAPI.csproj",
       "projectName": "FormFeedbackAPI",
-      "projectPath": "B:\\Bootcamp #33\\Project Akhir\\FormFeedback\\FormFeedbackAPI\\FormFeedbackAPI.csproj",
+      "projectPath": "B:\\Bootcamp #33\\git\\FormFeedbackProject\\FormFeedback\\FormFeedbackAPI\\FormFeedbackAPI.csproj",
       "packagesPath": "C:\\Users\\marzo\\.nuget\\packages\\",
-      "outputPath": "B:\\Bootcamp #33\\Project Akhir\\FormFeedback\\FormFeedbackAPI\\obj\\",
+      "outputPath": "B:\\Bootcamp #33\\git\\FormFeedbackProject\\FormFeedback\\FormFeedbackAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
