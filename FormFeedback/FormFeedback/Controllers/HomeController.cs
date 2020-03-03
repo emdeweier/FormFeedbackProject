@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FormFeedback.Models;
@@ -19,7 +17,7 @@ namespace FormFeedback.Controllers
 
         public HomeController()
         {
-            httpClient.BaseAddress = new Uri("http://192.168.128.79:1708/api/");
+            httpClient.BaseAddress = new Uri("http://192.168.128.233:1708/");
             //httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODUyNzQwNDEsImlzcyI6ImJvb3RjYW1wcmVzb3VyY2VtYW5hZ2VtZW50IiwiYXVkIjoicmVhZGVycyJ9.YA-M_KN25FWmUuIS1bd9F5ioiRkVY8NCas1Bjma8kjQ");
         }
@@ -34,15 +32,38 @@ namespace FormFeedback.Controllers
             return RedirectToAction("", "Questions");
         }
 
+        [Route("LockedAccount")]
+        public IActionResult LockedAccount()
+        {
+            //var token = HttpContext.Session.GetString("Token");
+            //if (token == null)
+            //{
+            //    return Redirect("/");
+            //}
+            return View();
+        }
+
+        [Route("ForgotPassword")]
+        public IActionResult ForgotPassword()
+        {
+            //var token = HttpContext.Session.GetString("Token");
+            //if (token == null)
+            //{
+            //    return Redirect("/");
+            //}
+            return View();
+        }
+
         [Route("Logout")]
         public async Task<ActionResult> Logout()
         {
             var token = HttpContext.Session.GetString("Token");
             if (token == null)
             {
-                return RedirectToAction("", "Questions");
+                return RedirectToAction("", "Home");
             }
             HttpContext.Session.Remove("Token");
+            HttpContext.Session.Remove("Username");
             return RedirectToAction("", "Home");
         }
 
@@ -59,20 +80,22 @@ namespace FormFeedback.Controllers
             var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            var affectedRow = httpClient.PostAsync("Users/Login", byteContent).Result;
+            var affectedRow = httpClient.PostAsync("Login", byteContent).Result;
             if (affectedRow.IsSuccessStatusCode)
             {
                 var readTask = affectedRow.Content.ReadAsStringAsync().Result.Replace("\"", "").Split("...");
                 var token = "Bearer " + readTask[0];
                 var username = readTask[1];
-                //var iduser = readTask[2];
+                var iduser = readTask[2];
                 HttpContext.Session.SetString("Token", token);
-                HttpContext.Session.SetString("Username", username);
-                //var cek = httpClient.GetAsync("Users/" + iduser).Result;
-                //var read = cek.Content.ReadAsStringAsync().Result;
-                return Json(new { data = readTask, affectedRow.StatusCode });
+                var cek = httpClient.GetAsync("Get/" + iduser).Result;
+                var read = cek.Content.ReadAsStringAsync().Result;
+                userVM.Id = iduser;
+                HttpContext.Session.SetString("Username", userVM.Id);
+                return Json(new { data = read, affectedRow.StatusCode });
             }
-            return Json(new { affectedRow.StatusCode });
+            userVM.Count += 1;
+            return Json(new { userVM.Count, affectedRow.StatusCode });
         }
 
         public IActionResult Contact()

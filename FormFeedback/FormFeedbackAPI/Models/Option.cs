@@ -12,8 +12,6 @@ namespace FormFeedbackAPI.Models
     [Table("TB_M_Options")]
     public class Option : BaseModel
     {
-        [Key]
-        public string Id { get; set; }
         public string O_Name { get; set; }
     }
 }

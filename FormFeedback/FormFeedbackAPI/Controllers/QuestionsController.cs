@@ -1,75 +1,104 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FormFeedbackAPI.Bases;
+using FormFeedbackAPI.Models;
+using FormFeedbackAPI.Repositories.Data;
+using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
-using FormFeedbackAPI.Models;
-using FormFeedbackAPI.Services.Interfaces;
-using FormFeedbackAPI.ViewModels;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace FormFeedbackAPI.Controllers
 {
+    //[Route("api/[controller]")]
+    //[ApiController]
+    //public class QuestionsController : ControllerBase
+    //{
+    //    IQuestionService _questionService;
+
+    //    public QuestionsController(IQuestionService questionService)
+    //    {
+    //        _questionService = questionService;
+    //    }
+
+    //    [HttpGet]
+    //    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //    public IEnumerable<QuestionVM> GetQuestions()
+    //    {
+    //        return _questionService.Get();
+    //    }
+
+    //    [HttpGet("{Id}")]
+    //    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //    public ActionResult GetQuestions(string id)
+    //    {
+    //        var questions = _questionService.Get(id);
+    //        return Ok(questions);
+    //    }
+
+    //    [HttpPost]
+    //    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //    public ActionResult PostQuestions(QuestionVM questionVM)
+    //    {
+    //        var post = _questionService.Add(questionVM);
+    //        if (post > 0)
+    //        {
+    //            return Ok(post);
+    //        }
+    //        return BadRequest();
+    //    }
+
+    //    [HttpPut("{Id}")]
+    //    public ActionResult PutQuestions(string id, QuestionVM questionVM)
+    //    {
+    //        var put = _questionService.Edit(id, questionVM);
+    //        if (put > 0)
+    //        {
+    //            return Ok(put);
+    //        }
+    //        return BadRequest();
+    //    }
+
+    //    [HttpDelete("{Id}")]
+    //    public ActionResult Delete(string id)
+    //    {
+    //        var delete = _questionService.Delete(id);
+    //        if (delete)
+    //        {
+    //            return Ok(delete);
+    //        }
+    //        return BadRequest();
+    //    }
+    //}
+
     [Route("api/[controller]")]
     [ApiController]
-    public class QuestionsController : ControllerBase
+    public class QuestionsController : BasesController<Question, QuestionRepository>
     {
-        IQuestionService _questionService;
+        private readonly QuestionRepository _repository;
 
-        public QuestionsController(IQuestionService questionService)
+        public QuestionsController(QuestionRepository questionRepository) : base(questionRepository)
         {
-            _questionService = questionService;
-        }
-
-        [HttpGet]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public IEnumerable<QuestionVM> GetQuestions()
-        {
-            return _questionService.Get();
-        }
-
-        [HttpGet("{Id}")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public ActionResult GetQuestions(string id)
-        {
-            var questions = _questionService.Get(id);
-            return Ok(questions);
+            _repository = questionRepository;
         }
 
         [HttpPost]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public ActionResult PostQuestions(QuestionVM questionVM)
+        [Route("Post")]
+        public async Task<IActionResult> Post(Question question)
         {
-            var post = _questionService.Add(questionVM);
-            if (post > 0)
+            var get = await _repository.Get();
+            get = get.Where(a => a.Q_Name.Equals(question.Q_Name) & a.Type.Equals(question.Type) & a.OptionId.Equals(question.OptionId));
+            if(get.Count() > 0)
             {
-                return Ok(post);
+                return BadRequest();
             }
-            return BadRequest();
-        }
-
-        [HttpPut("{Id}")]
-        public ActionResult PutQuestions(string id, QuestionVM questionVM)
-        {
-            var put = _questionService.Edit(id, questionVM);
-            if (put > 0)
+            else
             {
-                return Ok(put);
+                question.Create();
+                var create = await _repository.Post(question);
+                if (create > 0)
+                {
+                    return Ok(question);
+                }
+                return BadRequest();
             }
-            return BadRequest();
-        }
-
-        [HttpDelete]
-        public ActionResult Delete(string id)
-        {
-            var delete = _questionService.Delete(id);
-            if (delete)
-            {
-                return Ok(delete);
-            }
-            return BadRequest();
         }
     }
 }

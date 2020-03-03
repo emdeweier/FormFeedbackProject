@@ -11,19 +11,10 @@ namespace FormFeedbackAPI.Models
     [Table("TB_R_Reports")]
     public class Report : BaseModel
     {
-        [Key]
-        public string Id { get; set; }
-        public string FeedbackId { get; set; }
+        public int FeedbackId { get; set; }
         public string TotalPoint { get; set; }
         public string Result { get; set; }
         [ForeignKey("FeedbackId")]
         public Feedback Feedback { get; set; }
-
-        public Report() { }
-
-        public void Create()
-        {
-            CreateDate = DateTimeOffset.Now.LocalDateTime;
-        }
     }
 }

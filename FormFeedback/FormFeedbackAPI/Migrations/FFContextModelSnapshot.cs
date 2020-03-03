@@ -19,24 +19,24 @@ namespace FormFeedbackAPI.Migrations
 
             modelBuilder.Entity("FormFeedbackAPI.Models.Feedback", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Answer");
 
-                    b.Property<DateTimeOffset>("CreateDate");
+                    b.Property<DateTime>("CreateDate");
 
-                    b.Property<DateTimeOffset>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate");
 
                     b.Property<bool>("IsDelete");
 
                     b.Property<string>("Note");
 
-                    b.Property<string>("PointId");
+                    b.Property<int>("PointId");
 
-                    b.Property<string>("QuestionId");
+                    b.Property<int>("QuestionId");
 
-                    b.Property<DateTimeOffset>("UpdateDate");
+                    b.Property<DateTime>("UpdateDate");
 
                     b.HasKey("Id");
 
@@ -49,18 +49,18 @@ namespace FormFeedbackAPI.Migrations
 
             modelBuilder.Entity("FormFeedbackAPI.Models.Option", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTimeOffset>("CreateDate");
+                    b.Property<DateTime>("CreateDate");
 
-                    b.Property<DateTimeOffset>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate");
 
                     b.Property<bool>("IsDelete");
 
                     b.Property<string>("O_Name");
 
-                    b.Property<DateTimeOffset>("UpdateDate");
+                    b.Property<DateTime>("UpdateDate");
 
                     b.HasKey("Id");
 
@@ -69,18 +69,18 @@ namespace FormFeedbackAPI.Migrations
 
             modelBuilder.Entity("FormFeedbackAPI.Models.Point", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTimeOffset>("CreateDate");
+                    b.Property<DateTime>("CreateDate");
 
-                    b.Property<DateTimeOffset>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate");
 
                     b.Property<bool>("IsDelete");
 
                     b.Property<string>("Note");
 
-                    b.Property<DateTimeOffset>("UpdateDate");
+                    b.Property<DateTime>("UpdateDate");
 
                     b.Property<int>("Value");
 
@@ -91,40 +91,38 @@ namespace FormFeedbackAPI.Migrations
 
             modelBuilder.Entity("FormFeedbackAPI.Models.Question", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTimeOffset>("CreateDate");
+                    b.Property<DateTime>("CreateDate");
 
-                    b.Property<DateTimeOffset>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate");
 
                     b.Property<bool>("IsDelete");
 
-                    b.Property<string>("OptionId");
+                    b.Property<int>("OptionId");
 
                     b.Property<string>("Q_Name");
 
                     b.Property<string>("Type");
 
-                    b.Property<DateTimeOffset>("UpdateDate");
+                    b.Property<DateTime>("UpdateDate");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("OptionId");
 
                     b.ToTable("TB_M_Questions");
                 });
 
             modelBuilder.Entity("FormFeedbackAPI.Models.Report", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTimeOffset>("CreateDate");
+                    b.Property<DateTime>("CreateDate");
 
-                    b.Property<DateTimeOffset>("DeleteDate");
+                    b.Property<DateTime>("DeleteDate");
 
-                    b.Property<string>("FeedbackId");
+                    b.Property<int>("FeedbackId");
 
                     b.Property<bool>("IsDelete");
 
@@ -132,7 +130,7 @@ namespace FormFeedbackAPI.Migrations
 
                     b.Property<string>("TotalPoint");
 
-                    b.Property<DateTimeOffset>("UpdateDate");
+                    b.Property<DateTime>("UpdateDate");
 
                     b.HasKey("Id");
 
@@ -302,25 +300,21 @@ namespace FormFeedbackAPI.Migrations
                 {
                     b.HasOne("FormFeedbackAPI.Models.Point", "Point")
                         .WithMany()
-                        .HasForeignKey("PointId");
+                        .HasForeignKey("PointId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("FormFeedbackAPI.Models.Question", "Question")
                         .WithMany()
-                        .HasForeignKey("QuestionId");
-                });
-
-            modelBuilder.Entity("FormFeedbackAPI.Models.Question", b =>
-                {
-                    b.HasOne("FormFeedbackAPI.Models.Option", "Option")
-                        .WithMany()
-                        .HasForeignKey("OptionId");
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("FormFeedbackAPI.Models.Report", b =>
                 {
                     b.HasOne("FormFeedbackAPI.Models.Feedback", "Feedback")
                         .WithMany()
-                        .HasForeignKey("FeedbackId");
+                        .HasForeignKey("FeedbackId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -11,6 +11,12 @@
     <Compile Remove="Migrations\20200225035749_changingmodel.Designer.cs" />
     <Compile Remove="Migrations\20200225083340_deletectoroptionandquestion.cs" />
     <Compile Remove="Migrations\20200225083340_deletectoroptionandquestion.Designer.cs" />
+    <Compile Remove="Migrations\20200301100324_questionandoptionmodel.cs" />
+    <Compile Remove="Migrations\20200301100324_questionandoptionmodel.Designer.cs" />
+    <Compile Remove="Migrations\20200301104941_questionandoptionmodel.cs" />
+    <Compile Remove="Migrations\20200301104941_questionandoptionmodel.Designer.cs" />
+    <Compile Remove="Migrations\20200301113457_changequestionnmodel.cs" />
+    <Compile Remove="Migrations\20200301113457_changequestionnmodel.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +25,7 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="Dapper.Contrib" Version="2.0.30" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />

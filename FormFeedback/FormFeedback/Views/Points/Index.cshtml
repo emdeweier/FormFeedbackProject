@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Management Points";
+}
+
+<section class="content">
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title"><button data-toggle="modal" data-target="#pts-modal" class="btn btn-primary" onclick="pClearScreen();">Create New</button></h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive m-0">
+                <table class="table table-striped table-bordered" id="points">
+                    <thead>
+                        <tr>
+                            <th width="5%">No.</th>
+                            <th>Point</th>
+                            <th>Note</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var pts in ViewBag.Points)
+                        {
+                            <tr>
+                                <td></td>
+                                <td>@pts.Value</td>
+                                <td>@pts.Note</td>
+                                <td><button class='btn btn-warning' onclick=pGetById("@pts.Id");>Edit</button> <button class='btn btn-danger' onclick=pDelete("@pts.Id");>Delete</button></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+            <div class="modal fade" id="pts-modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Points Form</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" class="form-control" id="pIdText" placeholder="Id" />
+                            <div class="form-group">
+                                <label for="Point">Point</label>
+                                <input type="text" id="pValueText" class="form-control" placeholder="Point">
+                            </div>
+                            <div class="form-group">
+                                <label for="Note">Note</label>
+                                <select style="width: 100%" id="pNoteText" name="Note" class="form-control select2bs4">
+                                    <option value="null">- Select Question Type -</option>
+                                    <option value="Sangat Buruk">Sangat Buruk</option>
+                                    <option value="Buruk">Buruk</option>
+                                    <option value="Baik">Baik</option>
+                                    <option value="Sangat Baik">Sangat Baik</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="pSave" onclick="pValidation();">Submit</button>
+                            <button type="button" class="btn btn-primary" id="pUpdate" onclick="pValidation();">Update</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</section>
+
+@section Scripts{
+    <!-- jQuery -->
+    <script src="~/js/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- DataTables -->
+    <script src="~/js/plugins/datatables/jquery.dataTables.js"></script>
+    <script src="~/js/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+    <!-- Select2 -->
+    <script src="~/js/plugins/select2/js/select2.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="~/js/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="~/js/plugins/chart.js/Chart.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/js/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/js/demo.js"></script>
+    <!-- Custom scripts -->
+    <script src="~/js/ff.js"></script>
+}
+

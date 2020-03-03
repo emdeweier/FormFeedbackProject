@@ -28,7 +28,7 @@ $(function () {
     })
     q.on('order.dt search.dt', function () {
         q.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
-            cell.innerHTML = i + 1;
+            cell.innerHTML = i + 1 + ".";
         });
     }).draw();
 });
@@ -81,14 +81,14 @@ function qSave() {
     var question = new Object();
     question.Q_Name = $("#qValueText").val();
     question.Type = $("#qTypeText").val();
-    question.oId = $("#qOptText").val();
+    question.optionId = $("#qOptText").val();
     $.ajax({
         "url": "/Questions/Create",
         "type": "POST",
         "dataType": "json",
         "data": question
     }).then((result) => {
-        if (result.data != null) {
+        if (result.statusCode == 200) {
             Swal.fire({
                 icon: 'success',
                 title: 'Your data has been saved',
@@ -126,7 +126,7 @@ function qGetById(id) {
             $("#qValueText").val(result.data.q_Name);
             $("#qTypeText").val(result.data.type);
             $("#qTypeText").trigger('change');
-            $("#qOptText").val(result.data.oId);
+            $("#qOptText").val(result.data.optionId);
             $("#qOptText").trigger('change');
             debugger
             $("#qst-modal").modal("show");
@@ -136,21 +136,22 @@ function qGetById(id) {
     })
 }
 
-function qEdit(Id) {
-    var department = new Object();
+function qEdit(id) {
+    var question = new Object();
     debugger
-    department.Id = $("#deptIdText").val();
+    question.Id = $("#qIdText").val();
     debugger
-    department.Name = $("#deptValueText").val();
-    department.divisionId = $("#deptDivText").val();
+    question.Q_Name = $("#qValueText").val();
+    question.Type = $("#qTypeText").val();
+    question.optionId = $("#qOptText").val();
     $.ajax({
-        "url": "/Departments/Edit/",
+        "url": "/Questions/Edit/",
         "type": "POST",
         "dataType": "json",
-        "data": { Id: department.Id, Name: department.Name, divisionId: department.divisionId }
+        "data": { Id: question.Id, Q_Name: question.Q_Name, Type: question.Type, optionId: question.optionId }
     }).then((result) => {
-        if (result.data[0] != 0) {
-            $("#dept-modal").modal("hide");
+        if (result.statusCode == 200) {
+            $("#qst-modal").modal("hide");
             Swal.fire({
                 icon: 'success',
                 title: 'Your data has been updated',
@@ -169,7 +170,7 @@ function qEdit(Id) {
     })
 }
 
-function qDelete(Id) {
+function qDelete(id) {
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -182,9 +183,9 @@ function qDelete(Id) {
         if (result.value) {
             debugger
             $.ajax({
-                "url": "/Departments/Delete/",
+                "url": "/Questions/Delete/",
                 "dataType": "json",
-                "data": { id: Id }
+                "data": { Id: id }
             }).then((hasil) => {
                 debugger
                 if (hasil.data[0] != 0) {
@@ -228,7 +229,7 @@ $(function () {
     });
     o.on('order.dt search.dt', function () {
         o.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
-            cell.innerHTML = i + 1;
+            cell.innerHTML = i + 1 + ".";
         });
     }).draw();
 });
@@ -269,7 +270,7 @@ function oSave() {
         "data": option
     }).then((result) => {
         debugger;
-        if (result.data != null) {
+        if (result.statusCode == 200) {
             Swal.fire({
                 icon: 'success',
                 title: 'Your data has been saved',
@@ -325,7 +326,7 @@ function oEdit(id) {
         "dataType": "json",
         "data": { Id: option.Id, O_Name: option.O_Name }
     }).then((result) => {
-        if (result.data[0] != 0) {
+        if (result.statusCode == 200) {
             $("#opt-modal").modal("hide");
             Swal.fire({
                 icon: 'success',
@@ -359,6 +360,194 @@ function oDelete(id) {
             debugger
             $.ajax({
                 "url": "/Options/Delete/",
+                "dataType": "json",
+                "data": { Id: id }
+            }).then((hasil) => {
+                debugger
+                if (hasil.data[0] != 0) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Your data has been deleted',
+                        text: 'Deleted!'
+                    }).then((result) => {
+                        location.reload();
+                    });
+                }
+                else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Your data not deleted',
+                        text: 'Failed!'
+                    })
+                }
+            })
+        }
+    })
+}
+
+// Points
+
+$(function () {
+    debugger;
+    var p = $("#points").DataTable({
+        "columnDefs": [
+            {
+                "searchable": false,
+                "orderable": false,
+                "targets": 0
+            },
+            {
+                "orderable": false,
+                "targets": 3
+            }
+        ],
+        "order": [[1, 'asc']]
+    });
+    p.on('order.dt search.dt', function () {
+        p.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+            cell.innerHTML = i + 1 + ".";
+        });
+    }).draw();
+});
+
+function pClearScreen() {
+    document.getElementById("pIdText").disabled = true;
+    $("#pIdText").val('');
+    $("#pValueText").val('');
+    $("#pNoteText").val('');
+    $("#pUpdate").hide();
+    $("#pSave").show();
+}
+
+function pValidation() {
+    if ($("#pValueText").val().trim() == "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please Fill Point'
+        })
+    }
+    else if ($("#pNoteText").val() == "null") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please Fill Note'
+        })
+    }
+    else if ($("#pIdText").val() == "" || $("#pIdText").val() == " ") {
+        pSave();
+    }
+    else {
+        debugger
+        pEdit($("#pIdText").val());
+    }
+}
+
+function pSave() {
+    var point = new Object();
+    debugger;
+    point.Value = $("#pValueText").val();
+    point.Note = $("#pNoteText").val();
+    $.ajax({
+        "url": "/Points/Create",
+        "type": "POST",
+        "dataType": "json",
+        "data": point
+    }).then((result) => {
+        debugger;
+        if (result.statusCode == 200) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Your data has been saved',
+                text: 'Success!'
+            }).then((hasil) => {
+                location.reload();
+            });
+            $("#pts-modal").modal("hide");
+        }
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Your data not saved',
+                text: 'Failed!'
+            })
+        }
+    })
+}
+
+function pGetById(id) {
+    debugger
+    $.ajax({
+        "url": "/Points/Get/" + id,
+        "type": "GET",
+        "dataType": "json",
+        "data": { Id: id }
+    }).then((result) => {
+        debugger
+        if (result.data != null) {
+            debugger
+            document.getElementById("pIdText").disabled = true;
+            debugger
+            $("#pIdText").val(result.data.id);
+            debugger
+            $("#pValueText").val(result.data.value);
+            $("#pNoteText").val(result.data.note);
+            $("#pNoteText").trigger('change');
+            debugger
+            $("#pts-modal").modal("show");
+            $("#pUpdate").show();
+            $("#pSave").hide();
+        }
+    })
+}
+
+function pEdit(id) {
+    var point = new Object();
+    debugger
+    point.Id = $("#pIdText").val();
+    debugger
+    point.Value = $("#pValueText").val();
+    point.Note = $("#pNoteText").val();
+    $.ajax({
+        "url": "/Points/Edit/",
+        "type": "POST",
+        "dataType": "json",
+        "data": { Id: point.Id, Value: point.Value, Note: point.Note }
+    }).then((result) => {
+        if (result.statusCode == 200) {
+            $("#pts-modal").modal("hide");
+            Swal.fire({
+                icon: 'success',
+                title: 'Your data has been updated',
+                text: 'Success!'
+            }).then((result) => {
+                location.reload();
+            });
+        }
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Your data not updated',
+                text: 'Failed!'
+            })
+        }
+    })
+}
+
+function pDelete(id) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.value) {
+            debugger
+            $.ajax({
+                "url": "/Points/Delete/",
                 "dataType": "json",
                 "data": { Id: id }
             }).then((hasil) => {

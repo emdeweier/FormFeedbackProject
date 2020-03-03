@@ -37,14 +37,6 @@ B:\Bootcamp #33\Project Akhir\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\
 B:\Bootcamp #33\Project Akhir\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.dll
 B:\Bootcamp #33\Project Akhir\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.pdb
 B:\Bootcamp #33\Project Akhir\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\Razor\Views\Users\Index.g.cshtml.cs
-B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.csprojAssemblyReference.cache
-B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.csproj.CoreCompileInputs.cache
-B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.RazorAssemblyInfo.cache
-B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.RazorAssemblyInfo.cs
-B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.AssemblyInfoInputs.cache
-B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.AssemblyInfo.cs
-B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.dll
-B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.pdb
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\bin\Debug\netcoreapp2.1\FormFeedback.deps.json
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\bin\Debug\netcoreapp2.1\FormFeedback.runtimeconfig.json
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\bin\Debug\netcoreapp2.1\FormFeedback.runtimeconfig.dev.json
@@ -54,14 +46,22 @@ B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\bin\Debug\netc
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\bin\Debug\netcoreapp2.1\FormFeedback.Views.pdb
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\bin\Debug\netcoreapp2.1\FormFeedbackAPI.dll
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\bin\Debug\netcoreapp2.1\FormFeedbackAPI.pdb
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.csprojAssemblyReference.cache
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.csproj.CoreCompileInputs.cache
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.RazorAssemblyInfo.cache
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.RazorAssemblyInfo.cs
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.AssemblyInfoInputs.cache
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.AssemblyInfo.cs
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.TagHelpers.input.cache
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.TagHelpers.output.cache
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.RazorCoreGenerate.cache
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\Razor\Views\Home\LockedAccount.g.cshtml.cs
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\Razor\Views\Options\Index.g.cshtml.cs
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\Razor\Views\Points\Index.g.cshtml.cs
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\Razor\Views\Questions\Index.g.cshtml.cs
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Footer.g.cshtml.cs
@@ -75,3 +75,5 @@ B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netc
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.RazorTargetAssemblyInfo.cs
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.Views.pdb
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.csproj.CopyComplete
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.dll
+B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedback\obj\Debug\netcoreapp2.1\FormFeedback.pdb
