@@ -64,7 +64,7 @@ using FormFeedback.Models;
             WriteLiteral("<!DOCTYPE html>\r\n<html>\r\n");
             EndContext();
             BeginContext(25, 23, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "a680cf6fc1354a24b9ba8aa54665061a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "463acdb98c2545bbbe39618d61161846", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -83,12 +83,12 @@ using FormFeedback.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(50, 2190, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "da8211371f66491fb92aca3aaf4b450c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cbee4a941f814f208ff47c3cdcc116f4", async() => {
                 BeginContext(106, 62, true);
                 WriteLiteral("\r\n    <div class=\"wrapper\">\r\n        <!-- Navbar -->\r\n        ");
                 EndContext();
                 BeginContext(168, 25, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "249aabb388a845f2bd390825f21b3840", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "83bbaa29494b4a8089ffd8e836e865bd", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -107,7 +107,7 @@ using FormFeedback.Models;
                 WriteLiteral("\r\n        <!-- /.navbar -->\r\n        <!-- Main Sidebar Container -->\r\n        <aside class=\"main-sidebar sidebar-dark-primary elevation-4\">\r\n            <!-- Brand Logo -->\r\n            <a href=\"/\" class=\"brand-link\">\r\n                ");
                 EndContext();
                 BeginContext(428, 124, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ddc1d3b692404e4f84110522f0b77f6f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "845b1a86bc1c4ec3bc9a30274d1b4663", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -128,7 +128,7 @@ using FormFeedback.Models;
                 WriteLiteral("\r\n                <span class=\"brand-text font-weight-light\">Form Feedback</span>\r\n            </a>\r\n            <!-- Sidebar -->\r\n            ");
                 EndContext();
                 BeginContext(695, 26, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f2b91b16cb9c416e919e1188c1d66545", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "588a29231a274cbc951304f5d352256a", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -196,7 +196,7 @@ using FormFeedback.Models;
                 WriteLiteral("\r\n            <!-- /.content -->\r\n        </div>\r\n        <!-- /.content-wrapper -->\r\n        ");
                 EndContext();
                 BeginContext(1916, 25, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "12f7a061b93347b681a23a7cd256b91a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9f2680a852474f8db0af0eec3efe1b1f", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

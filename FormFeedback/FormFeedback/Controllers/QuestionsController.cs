@@ -37,15 +37,15 @@ namespace FormFeedback.Controllers
         }
 
         // GET: Questions/Details/5
-        public IList<QuestionVM> Questions()
+        public IList<Question> Questions()
         {
-            IList<QuestionVM> questions = null;
+            IList<Question> questions = null;
             var responseTask = httpClient.GetAsync("Questions");
             responseTask.Wait();
             var result = responseTask.Result;
             if (result.IsSuccessStatusCode)
             {
-                var readTask = result.Content.ReadAsAsync<IList<QuestionVM>>();
+                var readTask = result.Content.ReadAsAsync<IList<Question>>();
                 readTask.Wait();
                 questions = readTask.Result;
             }
@@ -71,18 +71,18 @@ namespace FormFeedback.Controllers
         }
 
         // GET: Questions/Create
-        public async Task<ActionResult> Create(QuestionVM questionVM)
+        public async Task<ActionResult> Create(Question question)
         {
             httpClient.DefaultRequestHeaders.Add("Authorization", HttpContext.Session.GetString("Token"));
-            var myContent = JsonConvert.SerializeObject(questionVM);
+            var myContent = JsonConvert.SerializeObject(question);
             var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            var affectedRow = httpClient.PostAsync("Questions", byteContent).Result;
-            return Json(new { data = affectedRow });
+            var affectedRow = httpClient.PostAsync("Questions/Post", byteContent).Result;
+            return Json(new { data = affectedRow, affectedRow.StatusCode });
         }
 
-        public JsonResult Get(string id)
+        public JsonResult Get(int id)
         {
             httpClient.DefaultRequestHeaders.Add("Authorization", HttpContext.Session.GetString("Token"));
             var cek = httpClient.GetAsync("Questions/" + id).Result;
@@ -90,44 +90,22 @@ namespace FormFeedback.Controllers
             return Json(new { data = read });
         }
 
-        // POST: Questions/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        // POST: Questions/Edit/
+        public ActionResult Edit(int Id, QuestionVM questionVM)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var myContent = JsonConvert.SerializeObject(questionVM);
+            var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
+            var ByteContent = new ByteArrayContent(buffer);
+            ByteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var update = httpClient.PutAsync("Questions/" + Id, ByteContent).Result;
+            return Json(new { data = update, update.StatusCode });
         }
 
-        // GET: Questions/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Questions/Delete/
+        public JsonResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: Questions/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var affectedRow = httpClient.DeleteAsync("Questions/Delete/" + id).Result;
+            return Json(new { data = affectedRow });
         }
     }
 }

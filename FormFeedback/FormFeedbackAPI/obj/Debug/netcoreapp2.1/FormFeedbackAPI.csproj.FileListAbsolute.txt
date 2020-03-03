@@ -17,7 +17,6 @@ B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\bin\Debug\n
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\bin\Debug\netcoreapp2.1\FormFeedbackAPI.runtimeconfig.dev.json
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\bin\Debug\netcoreapp2.1\FormFeedbackAPI.dll
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\bin\Debug\netcoreapp2.1\FormFeedbackAPI.pdb
-B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.csprojAssemblyReference.cache
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.csproj.CoreCompileInputs.cache
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.RazorAssemblyInfo.cache
 B:\Bootcamp #33\git\FormFeedbackProject\FormFeedback\FormFeedbackAPI\obj\Debug\netcoreapp2.1\FormFeedbackAPI.RazorAssemblyInfo.cs
